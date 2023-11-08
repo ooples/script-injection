@@ -11,12 +11,13 @@ env:
 jobs:
   check-issue-title:
     runs-on: ubuntu-latest
+    env:
+      ISSUE_TITLE: ${{ github.event.issue.title }}
     steps:
       - uses: actions/checkout@v2
       - name: Check issue title
         run: |
-          title="${{ github.event.issue.title }}"
-          if [[ "$title" =~ ^octocat ]]; then
+          if [[ "$ISSUE_TITLE" =~ ^octocat ]]; then
           echo "Issue title starts with 'octocat'"
           exit 0
           else
