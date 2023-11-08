@@ -2,6 +2,6 @@ packs:
   - advanced-security/codeql-javascript
 query-filters:
   - include:
-    tags contain: action
+      tags contain: actions
 paths:
   - '.github/workflows'
